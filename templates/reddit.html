@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+    <title>Memes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="redditTitle">Top Memes of Reddit</h1> 
+        <p class="memeText">
+            A simple API to fetch a reddit meme with a simple http request. 
+        </p>
+        <div>
+            {% for i in range(0, maxRange)|reverse %}
+            <p class="memeTitle">{{ memes.data[i][1]}}</p>
+            <a href={{ memes.data[i][5] }}>
+            <img class="memeImg" src={{memes.data[i][4]}}> </img>
+            </a>
+            <p class=memeInfo>
+            Author: {{ memes.data[i][2] }}<br>
+            Subreddit: {{ memes.data[i][3] }}<br>
+            Published: {{ memes.data[i][6] }}</p>
+        {% endfor %}
+        </div>
+        <a class="btn" href="/">Refresh</a>
+        <p class="memeText">
+            <span >API Endpoint(s):<br>
+                <a href="/api/meme" class="redirectLink">/api/meme</a><br>
+                <a href="/api/meme/only_image" class="redirectLink">/api/meme/only_image</a>
+            </span><br>
+            <span>
+                Subreddits: <br><a href="/subreddits">/subreddits</a>
+            </span>
+        </p>     
+    <br>
+</div>
+    
+</body>
+</html>

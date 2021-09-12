@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+    <title>Subreddits 🤣</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" href="/">Home</a>
+        <a href="/boards">Boards</a>
+        <a href="/admin">Admin</a>
+      </div>
+    <div class="container">
+        <h1 class="title">List of Subreddits<br>
+    
+        </h1> 
+        <p class="aboutText">
+         The subreddits that the memes are retrieved from. The list is 
+         stored in a txt file. 
+        </p>
+        <div>
+            {% for i in range(25) %}
+            <li class="subreddit">
+                <a href={{ "https://reddit.com/r/"+subreddits[i] }}> {{subreddits[i]}} </a>
+            </li>
+            {% endfor %}
+        </div>
+    <br>
+    <footer id="footer">
+        Made by nnmax1 <br>
+        Check out my <a href="https://github.com/nnmax1">Github</a>
+    </footer>
+    <br>
+</div>
+    
+</body>
+</html>
